@@ -1,6 +1,11 @@
-# VS code
+# VS code и не только
 .vs
 .vscode
+x64
+.sln
+.vcxproj
+.filters
+.user
 
 # Prerequisites
 *.d
