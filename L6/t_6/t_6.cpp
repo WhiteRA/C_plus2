@@ -28,14 +28,4 @@ int main()
 
     return 0;
 
-    // 7
-    int M, N;
-    std::cout << "Введите числа M и N для дроби M/N: ";
-    std::cin >> M >> N;
-
-    if (N == 0)
-    {
-        std::cout << "Ошибка: знаменатель не может быть равен нулю." << std::endl;
-        return 1;
-    }
 }
