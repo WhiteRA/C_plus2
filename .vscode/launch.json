@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/user/Dropbox/prog/C++/L2/t3",
-      "program": "c:/Users/user/Dropbox/prog/C++/L2/t3/build/Debug/outDebug",
+      "cwd": "c:/Users/user/Dropbox/prog/C++",
+      "program": "c:/Users/user/Dropbox/prog/C++/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

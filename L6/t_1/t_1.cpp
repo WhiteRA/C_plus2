@@ -4,16 +4,20 @@
 
 int main()
 {	
-	setlocale(LC_ALL, "Russian");
+    int i;
+    int j;
+    std::cout << "который час ?\n";
+    do
+    {
 
-	std::string message;
-    std::cout << "Введите команду\n";
-	std::cin >> message;
-	while (message != "Да")
-	{
-		std::cout << "Не верно\n";
-		std::cin >> message;
-	}
-	std::cout << "Хорошо\n";
+        std::cin >> i;
+        std::cout << "Неверное время\n";
+    } while (i < 0 || i > 24);
+
+    while (j < i)
+    {
+        std::cout << "Ку-ку!\n";
+        j++;
+    }
 }
 
