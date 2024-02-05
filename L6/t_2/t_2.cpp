@@ -2,14 +2,14 @@
 
 int main()
 {
-	std::string name;
-	std::cout << "Как зовут ?\n";
-	std::cin >> name;
-
-	while (name != "Слон")
-	{
-		std::cout << name << " купи слона!";
-	}
+    int i = 123456;
+    int j = 0;
+    while (i > 0)
+    {
+        i /= 10;
+        j++;
+    }
+    std::cout << j << "\n";
 }
 
 
