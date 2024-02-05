@@ -4,6 +4,8 @@
 
 int main()
 {
+    setlocale(LC_ALL, "rus");
+
     int a, b, c;
     std::cout << "Введите количество воды в мл: ";
     std::cin >> a;
