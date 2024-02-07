@@ -1,19 +1,26 @@
 #include <iostream>
 
 int ship(){
-    int f,m,t;
-    std::cout << "\nТяга двигателя: ";
-    std::cout << "\nМасса: ";
-    std::cout << "\nВремя в движении: ";
+    float f,m,t;
+    float a,s;
+    
     do
     {
-        /* code */
-    } while (true);
+        std::cout << "\nТяга двигателя: ";
+        std::cin >> f;
+        std::cout << "\nМасса: ";
+        std::cin >> m;
+        std::cout << "\nВремя в движении: ";
+        std::cin >> t;
+    } while (f <= 0 && m <= 0 && t < 0);
     
+    a = f/m;
+    s = (a*(t*t))/2;
+    std::cout << s << " Растояние ";
 
 }
 
 int main()
 {
-    
+    ship();
 }
