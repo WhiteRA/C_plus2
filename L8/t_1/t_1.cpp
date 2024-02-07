@@ -4,8 +4,7 @@
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    float f, m, t;
-    float a, s;
+    float f, m, t,a,s;
 
     do
     {
