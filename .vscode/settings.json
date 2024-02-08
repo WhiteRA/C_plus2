@@ -121,5 +121,7 @@
     "xtr1common": "cpp",
     "xutility": "cpp",
     "cstdarg": "cpp"
-  }
+  },
+  "CodeGPT.apiKey": "CodeGPT Plus Beta",
+  "C_Cpp.errorSquiggles": "disabled"
 }
