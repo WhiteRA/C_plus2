@@ -7,55 +7,26 @@ int main()
     std::getline(std::cin, str1);
     std::cout << "\nИщем там строку - ";
     std::getline(std::cin, str2);
-    int countElements, countWord = 0;
+    int countWord = 0;
 
     std::cout << "\n В строке " << str1 << " ищем " << str2;
 
-    bool feach = false;
-
-    for (int i = 0; i < str2.length(); i++)
+    for (int i = 0; i < str1.length(); i++)
     {
-        for (int j = 0; j < str1.length(); j++)
+        bool feach = true;
+        for (int j = 0; j < str2.length(); j++)
         {
-            if (str2[i] == str1[j])
-            {
-                countElements++;
-                if (countElements == str2.length())
-                {
-                    countWord++;
-                }
-            }
+            if (str2[j] == str1[i + j]) {
+			continue;
+		}
+		else
+			feach = false;
         }
+        if (feach) {
+		countWord++;
+	    }
     }
 
-    std::cout << "\n"
-              << countWord;
+    std::cout << "\n " << countWord;
 }
 
-int asda()
-{
-
-    std::string str, word;
-    int count_words = 0;
-    std::getline(std::cin, str);
-    std::cin >> word;
-    for (int i = 0; i < str.length(); ++i)
-    {
-        if (word[0] == str[i])
-        {
-            bool found_word = true;
-            for (int j = 0; j < str.length() && j < word.length(); ++j)
-            {
-                if (word[j] == str[i + j])
-                {
-                    continue;
-                }
-                else
-                    found_word = false;
-            }
-            if (found_word)
-                count_words++;
-        }
-    }
-    std::cout << count_words << "\n";
-}
