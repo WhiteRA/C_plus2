@@ -1,26 +1,30 @@
 #include <iostream>
 
-int ship(){
-    float f,m,t;
-    float a,s;
-    
-    do
-    {
-        std::cout << "\nТяга двигателя: ";
-        std::cin >> f;
-        std::cout << "\nМасса: ";
-        std::cin >> m;
-        std::cout << "\nВремя в движении: ";
-        std::cin >> t;
-    } while (f <= 0 && m <= 0 && t < 0);
-    
-    a = f/m;
-    s = (a*(t*t))/2;
-    std::cout << s << " Растояние ";
+int cube()
+{
+    setlocale(LC_ALL, "Russian");
+    int pCube, cCube, cSet;
+    float pСhunk, x, y, z;
 
+    std::cout << "X ";
+    std::cin >> x;
+    std::cout << "\nY ";
+    std::cin >> y;
+    std::cout << "\nZ ";
+    std::cin >> z;
+
+    pCube = 5 * 5 * 5;
+    pСhunk = x * y * z;
+    cCube = pСhunk / pCube;
+    cSet = cCube / 27;
+    std::cout << "Площадь одного кубика - " << pCube << "\nПлощадь бруска - " << pСhunk << "\nКолличество кубиков в бруске - " << cCube << "\nКолличество полный наборов - " << cSet;
+}
+
+int steam()
+{
 }
 
 int main()
 {
-    ship();
+    steam();
 }
