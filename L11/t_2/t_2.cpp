@@ -1,20 +1,108 @@
-﻿// t_2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
 
-#include <iostream>
+
+
+    std::string email;
+    std::string asd = "!#$%&'*+-/=?^_{|}~`"; 
+    bool accept = false;
+    
+int exceptionsList(std::string email)
+{
+    for (int i = 0; i < email.length(); i++)
+    {
+        for (int j = 0; j < asd.length(); j++)
+        {
+            if (email[i] == asd[i])
+            {
+                accept = false;
+                break;
+            }else {
+            accept = true;
+            }
+
+        }
+    }
+
+   return 0;
+    
+}
+
+int checkSymbol(std::string email){
+    for (char c : email)
+    {
+        if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||
+              (c >= '0' && c <= '9') || c == '-' || c == '.' ||
+              c == '@' || c == '_' || c == '!' || c == '#' ||
+              c == '$' || c == '%' || c == '&' || c == '\'' ||
+              c == '*' || c == '+' || c == '/' || c == '=' ||
+              c == '?' || c == '^' || c == '{' || c == '}' ||
+              c == '|' || c == '~'))
+        {
+            accept = false;
+        }
+        else {
+            accept = true;
+        }
+    }
+    return 0;
+}
+
+int checkLength(std::string email){
+
+    std::string getName;
+    std::string getDomain;
+    int dog;
+
+    if (email.length() < 1 ||  email.length() > 64)
+    {
+        accept = false;
+    }else {
+    accept = true;
+    }
+
+    for (int i = 0; i < email.length(); i++)
+    {
+        if (email[i]=='@')
+        {
+            dog = i;
+            break;
+        }
+        getName += email[i];
+    }
+
+    for (int i = dog + 1; i < email.length(); i++)
+    {
+        if (email[i] == '.')
+        {
+             break;
+        }
+        getDomain += email[i];
+    }
+
+    return 0;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    /*
+    std::cout << "Email-адрес\n";
+    std::cin >> email;
+
+    checkSymbol(email);
+    exceptionsList(email);
+    checkLength(email);
+
+    //accept == false ? std::cout << "Допустимый адрес\n" : std::cout << "Неверный формат электронной почты.\n" ;
+    */
+    
+    do
+    {
+        std::cout << "Email-адрес\n";
+        std::cin >> email;
+        checkSymbol(email);
+        exceptionsList(email);
+        checkLength(email);
+        std::cout << "Неверный формат электронной почты.\n";
+    } while(accept == true);
+    std::cout << "Допустимый адрес\n";
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
