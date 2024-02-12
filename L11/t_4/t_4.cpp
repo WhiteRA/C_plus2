@@ -1,20 +1,43 @@
-﻿// t_4.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <vector>
 
-#include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
+bool checkWin(const std::string& s) {
+    return (s == "XXX" || s == "OOO");
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+bool checkIncorrect(const std::vector<std::string>& grid) {
+    int xCount = 0, oCount = 0;
+    for (const auto& row : grid) {
+        int xInRow = 0, oInRow = 0;
+        for (char c : row) {
+            if (c == 'X') xInRow++;
+            else if (c == 'O') oInRow++;
+        }
+        if (xInRow > 1 && checkWin(row)) return true;
+        if (oInRow > 1 && checkWin(row)) return true;
+        xCount += xInRow;
+        oCount += oInRow;
+    }
+    if (oCount > xCount || (oCount == xCount && checkWin("OOO"))) return true;
+    for (int i = 0; i < 3; i++) {
+        int j = 0;
+        for (; j < 3; j++) if (grid[j][i] == '.') break;
+        if (j < 3 && grid[j][i] != 0 && grid[j][i] != grid[0][i] && grid[j][i] == grid[j+1][i]) return true;
+    }
+    if (checkWin("X.X") || checkWin(".XX")) return true;
+    return false;
+}
 
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+std::string checkResult(const std::vector<std::string>& grid) {
+    if (checkIncorrect(grid)) return "Incorrect";
+    if (checkWin("XXX")) return "Petya won";
+    if (checkWin("OOO")) return "Vanya won";
+    return "Nobody";
+}
+
+int main() {
+    std::vector<std::string> grid(3);
+    for (auto& row : grid) std::cin >> row;
+    std::cout << checkResult(grid) << std::endl;
+    return 0;
+}
