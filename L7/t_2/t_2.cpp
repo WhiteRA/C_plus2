@@ -1,57 +1,58 @@
-﻿// t_2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
 
-#include <iostream>
+int main() {
+    int water, milk;
+    int americanos = 0, lattes = 0;
 
-int main()
-{
-    setlocale(LC_ALL, "rus");
-    int a, b, c;
     std::cout << "Введите количество воды в мл: ";
-    std::cin >> a;
+    std::cin >> water;
+
     std::cout << "Введите количество молока в мл: ";
-    std::cin >> b;
-    std::cout << "Выберите напиток\n";
-    
-    do
-    {
-        std::cout << "1 - американо  \n";
-        std::cout << "2 - латте  \n";
-        std::cin >> c;
-    } while ( c!=1 && c!=2);
-    std::cout << "Отличный выбор \n";
+    std::cin >> milk;
 
-    if (c == 1)
-    {
-        a -= 300;
-        if (a < 0)
-        {
-            std::cout << "Не хватает воды \n";
+    while (true) {
+        int choice;
+        std::cout << "Выберите напиток (1 — американо, 2 — латте): ";
+        std::cin >> choice;
+
+        if (choice == 1) {
+            if (water >= 300) {
+                water -= 300;
+                americanos++;
+                std::cout << "Ваш напиток готов.\n";
+            }
+            else {
+                std::cout << "Не хватает воды.\n";
+            }
+        }
+        else if (choice == 2) {
+            if (water >= 30 && milk >= 270) {
+                water -= 30;
+                milk -= 270;
+                lattes++;
+                std::cout << "Ваш напиток готов.\n";
+            }
+            else {
+                std::cout << "Не хватает воды или молока.\n";
+            }
+        }
+        else {
+            std::cout << "Некорректный выбор. Попробуйте снова.\n";
+            continue;
+        }
+
+        if (water < 30 || milk < 270) {
+            break;
         }
     }
-    else {
-        a -= 30;
-        b -= 270;
-        if (a<0)
-        {
-            std::cout << "Не хватает воды \n";
-            a += 30;
-        }
-        if (b<0)
-        {
-            std::cout << "Не хватает молока \n";
-            b += 270;
-        }
-    }
 
+    std::cout << "***Отчёт***\n";
+    std::cout << "Ингредиентов осталось:\n";
+    std::cout << "Вода: " << water << " мл\n";
+    std::cout << "Молоко: " << milk << " мл\n";
+    std::cout << "Кружек американо приготовлено: " << americanos << "\n";
+    std::cout << "Кружек латте приготовлено: " << lattes << "\n";
 
-    std::cout << "Ваш напиток готов \n";
-    std::cout << "***Отчёт*** \n";
-    std::cout << "Ингредиентов осталось: \n";
-    std::cout << "Вода: " << a << " мл \n";
-    std::cout << "Молоко: " << b << " мл \n";
-
-
+    return 0;
 }
-
 

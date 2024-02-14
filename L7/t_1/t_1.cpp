@@ -1,15 +1,14 @@
-﻿
+﻿#include <iostream>
 
-#include <iostream>
+int main() {
+    const int startingAmount = 100;
+    int remainingAmount = startingAmount;
 
-int main()
-{
-    int a = 100;
-    std::cout << "Всего гречки было на начало подсчёта: " << a << " кг\n";
-    for (int i = 1; i < (a / 4); i++)
-    {
-        a -= 4;
-        std::cout << "После " << i << " месяца у вас в запасе останется " << a << " кг гречки\n";
+    for (int month = 1; remainingAmount > 0; month++) {
+        std::cout << "После " << month << " месяца у вас в запасе останется " << remainingAmount << " кг гречки\n";
+        remainingAmount -= 4;
     }
+
+    return 0;
 }
 
